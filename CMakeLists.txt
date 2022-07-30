@@ -18,7 +18,7 @@ set(GLM_INCLUDE_DIRS /opt/homebrew/Cellar/glm/0.9.9.8/include)
 # check directory
 add_subdirectory(glad)
 
-add_executable(${PROJECT_NAME} Instancing_Mars/main.cpp)
+add_executable(${PROJECT_NAME} Gamma_Correction/main.cpp)
 
 target_link_directories(${PROJECT_NAME} PUBLIC
     ${GLFW_LIBRARY_DIRS}
