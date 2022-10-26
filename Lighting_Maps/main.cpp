@@ -216,10 +216,12 @@ int main() {
 
     unsigned int diffuseMap = loadTexture(FileSystem::getPath("/data/container2.png").c_str());
     unsigned int specularMap = loadTexture(FileSystem::getPath("/data/container2_specular.png").c_str());
+    unsigned int emissionMap = loadTexture(FileSystem::getPath("/data/matrix.jpg").c_str());
 
     lightingShader.use();
     lightingShader.setInt("material.diffuse", 0);
     lightingShader.setInt("material.specular", 1);
+    lightingShader.setInt("material.emission", 2);
 
     // render loop
     while (!glfwWindowShouldClose(window)) {
@@ -261,16 +263,20 @@ int main() {
         glActiveTexture(GL_TEXTURE1);
         glBindTexture(GL_TEXTURE_2D, specularMap);
 
+        glActiveTexture(GL_TEXTURE2);
+        glBindTexture(GL_TEXTURE_2D, emissionMap);
+
         // render the cube 
         glBindVertexArray(cubeVAO);
         glDrawArrays(GL_TRIANGLES, 0, 36);
 
         // also draw the lamp object
+        lightingCubeShader.use();
         lightingCubeShader.setMat4("projection", projection);
         lightingCubeShader.setMat4("view", view);
         model = glm::mat4(1.0f);
         model = glm::translate(model, lightPos);
-        model = glm::scale(model, glm::vec3(1.2f)); // a smaller cube
+        model = glm::scale(model, glm::vec3(0.2f)); // a smaller cube
         lightingCubeShader.setMat4("model", model);
 
         glBindVertexArray(lightCubeVAO);

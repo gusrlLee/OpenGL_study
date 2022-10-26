@@ -175,7 +175,7 @@ int main() {
     while (!glfwWindowShouldClose(window)) {
         float currentFrame = static_cast<float>(glfwGetTime());
         deltaTime = currentFrame - lastFrame;
-        currentFrame = lastFrame;
+        lastFrame = currentFrame;
 
 
         processInput(window);
