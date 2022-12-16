@@ -24,7 +24,7 @@ const unsigned int SCR_WIDTH = 1280;
 const unsigned int SCR_HEIGHT = 720;
 
 // camera
-Camera camera(glm::vec3(0.0f, 0.0f, 3.0f));
+Camera camera(glm::vec3(0.0f, 0.0f, 10.0f));
 float lastX = SCR_WIDTH / 2.0f;
 float lastY = SCR_HEIGHT / 2.0f;
 bool firstMouse = true;
@@ -85,7 +85,7 @@ int main()
 
     // load models
     // -----------
-    Model ourModel(FileSystem::getPath("/data/sponza/sponza.obj"));
+    Model ourModel(FileSystem::getPath("/data/teapot/teapot.obj"));
 
     // draw in wireframe
     // glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);

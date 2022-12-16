@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0)
-project(excute_file)
+project(opengl_pratice)
 add_compile_options(-g)
 set(CMAKE_CXX_STANDARD 11)
 
@@ -18,7 +18,7 @@ set(GLM_INCLUDE_DIRS /opt/homebrew/Cellar/glm/0.9.9.8/include)
 # check directory
 add_subdirectory(glad)
 
-add_executable(${PROJECT_NAME} HDR/main.cpp)
+add_executable(${PROJECT_NAME} FrameBuffers/main.cpp)
 
 target_link_directories(${PROJECT_NAME} PUBLIC
     ${GLFW_LIBRARY_DIRS}
